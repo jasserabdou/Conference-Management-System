@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class represents the UI for managing a conference.
+ */
 public class ConferenceManagementUI {
     // Data placeholders
     private static List<String> sessions = new ArrayList<>();
@@ -12,6 +15,11 @@ public class ConferenceManagementUI {
     private static List<String> speakers = new ArrayList<>();
     private static Map<String, List<String>> attendance = new HashMap<>();
 
+    /**
+     * The main method to launch the conference management UI.
+     * 
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         // Main Frame
         JFrame frame = new JFrame("Conference Management System");
@@ -31,7 +39,11 @@ public class ConferenceManagementUI {
         frame.setVisible(true);
     }
 
-    // Conference Management Panel
+    /**
+     * Creates the Conference Management panel.
+     * 
+     * @return the conference management panel
+     */
     private static JPanel createConferencePanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -50,7 +62,7 @@ public class ConferenceManagementUI {
 
         // Action Listeners
         viewInfoButton.addActionListener(e -> JOptionPane.showMessageDialog(panel,
-                "Conference Name: AI Summit 2024\nStart Date: 2024-12-01\nEnd Date: 2024-12-05"));
+                "Conference Name: GAF-AI 2025\nStart Date: 2025-12-01\nEnd Date: 2025-12-05"));
 
         registerAttendeeButton.addActionListener(e -> {
             String name = JOptionPane.showInputDialog(panel, "Enter Attendee Name:");
@@ -61,13 +73,18 @@ public class ConferenceManagementUI {
 
         viewAttendeesButton.addActionListener(e -> {
             String attendeeList = String.join("\n", attendees);
-            JOptionPane.showMessageDialog(panel, "Registered Attendees:\n" + (attendeeList.isEmpty() ? "No attendees yet." : attendeeList));
+            JOptionPane.showMessageDialog(panel,
+                    "Registered Attendees:\n" + (attendeeList.isEmpty() ? "No attendees yet." : attendeeList));
         });
 
         return panel;
     }
 
-    // Session Management Panel
+    /**
+     * Creates the Session Management panel.
+     * 
+     * @return the session management panel
+     */
     private static JPanel createSessionPanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -101,15 +118,18 @@ public class ConferenceManagementUI {
             String sessionName = (String) JOptionPane.showInputDialog(panel, "Select Session:",
                     "Track Attendance", JOptionPane.QUESTION_MESSAGE, null,
                     sessions.toArray(), sessions.get(0));
-            if (sessionName == null) return;
+            if (sessionName == null)
+                return;
 
             String attendeeName = (String) JOptionPane.showInputDialog(panel, "Select Attendee:",
                     "Track Attendance", JOptionPane.QUESTION_MESSAGE, null,
                     attendees.toArray(), attendees.get(0));
-            if (attendeeName == null) return;
+            if (attendeeName == null)
+                return;
 
             attendance.get(sessionName).add(attendeeName);
-            JOptionPane.showMessageDialog(panel, "Attendance tracked for " + attendeeName + " in session " + sessionName);
+            JOptionPane.showMessageDialog(panel,
+                    "Attendance tracked for " + attendeeName + " in session " + sessionName);
         });
 
         viewSessionsButton.addActionListener(e -> {
@@ -117,15 +137,21 @@ public class ConferenceManagementUI {
             for (String session : sessions) {
                 sessionInfo.append("Session: ").append(session).append("\nAttendees:\n");
                 List<String> sessionAttendees = attendance.get(session);
-                sessionInfo.append(sessionAttendees.isEmpty() ? "  None\n" : "  " + String.join(", ", sessionAttendees) + "\n");
+                sessionInfo.append(
+                        sessionAttendees.isEmpty() ? "  None\n" : "  " + String.join(", ", sessionAttendees) + "\n");
             }
-            JOptionPane.showMessageDialog(panel, sessionInfo.toString().isEmpty() ? "No sessions yet." : sessionInfo.toString());
+            JOptionPane.showMessageDialog(panel,
+                    sessionInfo.toString().isEmpty() ? "No sessions yet." : sessionInfo.toString());
         });
 
         return panel;
     }
 
-    // Speaker Management Panel
+    /**
+     * Creates the Speaker Management panel.
+     * 
+     * @return the speaker management panel
+     */
     private static JPanel createSpeakerPanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -150,13 +176,18 @@ public class ConferenceManagementUI {
 
         viewSpeakersButton.addActionListener(e -> {
             String speakerList = String.join("\n", speakers);
-            JOptionPane.showMessageDialog(panel, "Speakers:\n" + (speakerList.isEmpty() ? "No speakers yet." : speakerList));
+            JOptionPane.showMessageDialog(panel,
+                    "Speakers:\n" + (speakerList.isEmpty() ? "No speakers yet." : speakerList));
         });
 
         return panel;
     }
 
-    // Attendee Management Panel
+    /**
+     * Creates the Attendee Management panel.
+     * 
+     * @return the attendee management panel
+     */
     private static JPanel createAttendeePanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -181,7 +212,8 @@ public class ConferenceManagementUI {
             String attendeeName = (String) JOptionPane.showInputDialog(panel, "Select Attendee:",
                     "Generate Certificate", JOptionPane.QUESTION_MESSAGE, null,
                     attendees.toArray(), attendees.get(0));
-            if (attendeeName == null) return;
+            if (attendeeName == null)
+                return;
 
             JOptionPane.showMessageDialog(panel, "Certificate Generated for: " + attendeeName);
         });
