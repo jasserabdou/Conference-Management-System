@@ -1,0 +1,23 @@
+commit 875d1a8d81232b5681d80458ee3d522d94919a6b
+Author: Jasser Abdelfattah <jasserabdelfattah12@gmail.com>
+Date:   Fri Nov 29 17:18:08 2024 +0200
+
+    21033101.Abdelfattah_part2 desgins are working
+
+commit ad3776aef381fe5896e0843111315f568fc58be1
+Author: Jasser Abdelfattah <jasserabdelfattah12@gmail.com>
+Date:   Fri Nov 29 16:07:50 2024 +0200
+
+    UI has worked
+
+commit 6db18b38a8372ed0034ced6b7eafb36efd934e28
+Author: Jasser Abdelfattah <jasserabdelfattah12@gmail.com>
+Date:   Wed Nov 13 18:04:09 2024 +0200
+
+    21033101.Abdelfattah_part2_1
+
+commit 8d7a9e9aa0f96024f8226b5a5b9f7879aca29e16
+Author: Jasser Abdelfattah <jasserabdelfattah12@gmail.com>
+Date:   Sun Oct 27 14:35:16 2024 +0300
+
+    21033101.Abdelfattah_part1
